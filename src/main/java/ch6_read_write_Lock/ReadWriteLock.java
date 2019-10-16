@@ -43,4 +43,10 @@ public class ReadWriteLock {
         preferWrite = false;
         notifyAll();
     }
+
+    /**
+     * 这里的preferwrite是非常有必要的
+     * 在读多写少的情况下，如果仅仅凭write的数目>0来控制read，由于read-read是不会加锁的，这样就会产生
+     * “死读”现象，就是出于一直读的状态，这样读写不平衡，因此通过waitwrite的数目和标志位控制读的程度。
+     */
 }
