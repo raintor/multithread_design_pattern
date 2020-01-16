@@ -11,10 +11,10 @@ package ch9_Future.base;
  * （3）返回futureData
  */
 public class Host {
-    public Data request(int count,char c){
+    public Data request(final int count, final char c){
         System.out.println("request begin");
         //接受订单
-        FutureData futureData = new FutureData();
+        final FutureData futureData = new FutureData();
 
         //交给面包店做
         new Thread(){
